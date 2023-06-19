@@ -1,7 +1,7 @@
 {
     "name": "github-astra",
     "private": true,
-    "version": "0.0.0",
+    "version": "0.0.1",
     "type": "module",
     "prettier": "@banjoanton/prettier-config",
     "scripts": {
@@ -27,7 +27,6 @@
     },
     "dependencies": {
         "@banjoanton/spa-runner": "0.0.19",
-        "promptler": "^0.0.4",
         "toastler": "^0.0.6"
     }
 }

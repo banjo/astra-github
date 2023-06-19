@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       github-astra
 // @namespace  banjoanton
-// @version    0.0.0
+// @version    0.0.1
 // @author     banjoanton
 // @icon       https://vitejs.dev/logo.svg
 // @match      https://github.com/*
@@ -416,7 +416,6 @@
   });
   function main() {
     var _a;
-    console.log("🪕%c Banjo | main.ts:12 |", "color: #E91E63", "started");
     const tab = getLastTab();
     if (!tab) {
       console.error("Could not find tab");
