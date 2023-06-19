@@ -11,7 +11,6 @@ window.addEventListener("load", () => {
 });
 
 function main() {
-    console.log("🪕%c Banjo | main.ts:12 |", "color: #E91E63", "started");
     const tab = getLastTab();
 
     if (!tab) {
