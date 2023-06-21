@@ -31,6 +31,7 @@ function main() {
 
     newElement.addEventListener("click", async () => {
         const message = getBranch();
+        const repo = getRepo();
         const size = await promptler("Enter size", {
             type: "text",
             placeholder: "S",
@@ -38,7 +39,7 @@ function main() {
 
         if (!size) return;
 
-        await navigator.clipboard.writeText(formatMessage(message, size));
+        await navigator.clipboard.writeText(formatMessage(message, size, repo));
         toast(`Copied to clipboard in Markdown`, {
             type: "success",
             duration: 2000,
@@ -52,13 +53,18 @@ function getLastTab() {
 }
 
 function getBranch() {
-    const name =
+    return (
         document.querySelector("#partial-discussion-header > div.gh-header-show > div > h1 > bdi")
-            ?.textContent ?? "";
-
-    return name;
+            ?.textContent ?? ""
+    );
 }
 
-function formatMessage(branch: string, size: string): string {
-    return `*${size}*, _csp-mono_: [${branch}](${window.location.href})`;
+function getRepo() {
+    return (
+        document.querySelectorAll(".AppHeader-context-item-label")?.[1]?.textContent ?? "unify-mono"
+    );
+}
+
+function formatMessage(branch: string, size: string, repo: string): string {
+    return `*${size}*,_${repo}_: [${branch}](${window.location.href})`;
 }
