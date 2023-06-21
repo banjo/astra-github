@@ -27,6 +27,7 @@
     },
     "dependencies": {
         "@banjoanton/spa-runner": "0.0.19",
+        "promptler": "^0.0.4",
         "toastler": "^0.0.6"
     }
 }
