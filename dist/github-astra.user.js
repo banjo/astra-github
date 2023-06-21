@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       github-astra
 // @namespace  banjoanton
-// @version    0.0.1
+// @version    0.0.2
 // @author     banjoanton
 // @icon       https://vitejs.dev/logo.svg
 // @match      https://github.com/*
@@ -424,20 +424,20 @@
     const cloned = tab.cloneNode(true);
     const cssClasses = cloned.classList;
     cssClasses.remove("selected");
-    const newElement = document.createElement("div");
+    const newElement = document.createElement("button");
     newElement.classList.value = cssClasses.value;
     newElement.textContent = "💬 Copy to Slack";
-    newElement.style.cursor = "pointer";
     (_a = tab.parentNode) == null ? void 0 : _a.insertBefore(newElement, tab.nextSibling);
     newElement.addEventListener("click", async () => {
       const message = getBranch();
+      const repo = getRepo();
       const size = await q("Enter size", {
         type: "text",
         placeholder: "S"
       });
       if (!size)
         return;
-      await navigator.clipboard.writeText(formatMessage(message, size));
+      await navigator.clipboard.writeText(formatMessage(message, size, repo));
       toast(`Copied to clipboard in Markdown`, {
         type: "success",
         duration: 2e3
@@ -450,11 +450,14 @@
   }
   function getBranch() {
     var _a;
-    const name = ((_a = document.querySelector("#partial-discussion-header > div.gh-header-show > div > h1 > bdi")) == null ? void 0 : _a.textContent) ?? "";
-    return name;
+    return ((_a = document.querySelector("#partial-discussion-header > div.gh-header-show > div > h1 > bdi")) == null ? void 0 : _a.textContent) ?? "";
   }
-  function formatMessage(branch, size) {
-    return `*${size}*, _csp-mono_: [${branch}](${window.location.href})`;
+  function getRepo() {
+    var _a, _b;
+    return ((_b = (_a = document.querySelectorAll(".AppHeader-context-item-label")) == null ? void 0 : _a[1]) == null ? void 0 : _b.textContent) ?? "unify-mono";
+  }
+  function formatMessage(branch, size, repo) {
+    return `*${size}*,_${repo}_: [${branch}](${window.location.href})`;
   }
 
 })();
