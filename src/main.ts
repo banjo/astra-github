@@ -23,10 +23,9 @@ function main() {
 
     cssClasses.remove("selected");
 
-    const newElement = document.createElement("div");
+    const newElement = document.createElement("button");
     newElement.classList.value = cssClasses.value;
     newElement.textContent = "💬 Copy to Slack";
-    newElement.style.cursor = "pointer";
 
     tab.parentNode?.insertBefore(newElement, tab.nextSibling);
 
