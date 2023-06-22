@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       github-astra
 // @namespace  banjoanton
-// @version    0.0.2
+// @version    0.0.3
 // @author     banjoanton
 // @icon       https://vitejs.dev/logo.svg
 // @match      https://github.com/*
@@ -453,11 +453,11 @@
     return ((_a = document.querySelector("#partial-discussion-header > div.gh-header-show > div > h1 > bdi")) == null ? void 0 : _a.textContent) ?? "";
   }
   function getRepo() {
-    var _a, _b;
-    return ((_b = (_a = document.querySelectorAll(".AppHeader-context-item-label")) == null ? void 0 : _a[1]) == null ? void 0 : _b.textContent) ?? "unify-mono";
+    var _a, _b, _c;
+    return ((_c = (_b = (_a = document.querySelectorAll(".AppHeader-context-item-label")) == null ? void 0 : _a[1]) == null ? void 0 : _b.textContent) == null ? void 0 : _c.trim()) ?? "unify-mono";
   }
   function formatMessage(branch, size, repo) {
-    return `*${size}*,_${repo}_: [${branch}](${window.location.href})`;
+    return `*${size}*, _${repo}_: [${branch}](${window.location.href})`;
   }
 
 })();
