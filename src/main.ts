@@ -61,10 +61,11 @@ function getBranch() {
 
 function getRepo() {
     return (
-        document.querySelectorAll(".AppHeader-context-item-label")?.[1]?.textContent ?? "unify-mono"
+        document.querySelectorAll(".AppHeader-context-item-label")?.[1]?.textContent?.trim() ??
+        "unify-mono"
     );
 }
 
 function formatMessage(branch: string, size: string, repo: string): string {
-    return `*${size}*,_${repo}_: [${branch}](${window.location.href})`;
+    return `*${size}*, _${repo}_: [${branch}](${window.location.href})`;
 }
