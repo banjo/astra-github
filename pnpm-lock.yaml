@@ -1,12 +1,16 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@banjoanton/spa-runner':
     specifier: 0.0.19
     version: 0.0.19
   promptler:
-    specifier: ^0.0.4
-    version: 0.0.4
+    specifier: ^0.0.5
+    version: 0.0.5
   toastler:
     specifier: ^0.0.6
     version: 0.0.6
@@ -2795,8 +2799,8 @@ packages:
     hasBin: true
     dev: true
 
-  /promptler@0.0.4:
-    resolution: {integrity: sha512-HGHmFKXxyUbmrdflaViG1glIoh4+/NtgxmeW5iBwyY3MwOouphrw8yGJKJOXphJ0eOugHOC+bt6dj79Nu8Nwcw==}
+  /promptler@0.0.5:
+    resolution: {integrity: sha512-ujOL2FADRc2upmV20oz32CMHAQeznfC/01dOj/IzIr+PEhFkQdqUqn0aNKkwa2wamVupyCAtu25Zy9VVUnxIwg==}
     dev: false
 
   /prompts@2.4.2:
